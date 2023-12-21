@@ -1,10 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
-import { AppService } from '../app.service';
 import { BatimentService } from "../services/batiment.service";
 import {  listBatiment } from "../entities/batiment.schema";
 import { hauteurListdto } from "../dto/hauteurtList.dto";
+import { ApiBody, ApiResponse, ApiTags } from "@nestjs/swagger";
 
-@Controller('ArchiTeck')
+
+@Controller('ArchiTekt')
 export class ListBatimentController {
   constructor(private readonly batimentService: BatimentService) {}
 
@@ -14,6 +15,20 @@ export class ListBatimentController {
   }
 
   @Post('addListBatiment')
+  @ApiBody({
+    schema: {
+       type: 'object',
+       properties: {
+         buildingsHeightList: {
+           type: 'Array',
+           description: 'buildingsHeightList',
+           example: [1,2,3],
+           required: ['true']
+         },
+       }
+     }
+   })
+  @ApiResponse({ status: 201, description: 'Item created successfully' })
   async createListBatiments(@Body() listHeight:hauteurListdto): Promise<listBatiment> {
     return this.batimentService.create(listHeight);
   }

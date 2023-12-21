@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { Module } from './module/module';
 import { DocumentBuilder, SwaggerCustomOptions, SwaggerModule } from "@nestjs/swagger";
+import { appModule } from "./module/module";
 
 async function bootstrap() {
-  const app = await NestFactory.create(Module);
+  const app = await NestFactory.create(appModule);
 
   const config = new DocumentBuilder()
     .setTitle('Archi TEKT Batiment API')

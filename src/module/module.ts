@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ListBatimentController } from '../controller/listBatiment.controller';
-import { AppService } from '../app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongooseConfigService } from "../config/MongooseConfigService";
 import { ConfigModule } from "@nestjs/config";
@@ -20,6 +19,6 @@ import { BatimentSchema } from "../entities/batiment.schema";
     }),
   ],
   controllers: [ListBatimentController],
-  providers: [AppService,MongooseConfigService,BatimentService],
+  providers: [MongooseConfigService,BatimentService],
 })
-export class Module {}
+export class appModule {}
