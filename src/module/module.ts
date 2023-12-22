@@ -3,8 +3,9 @@ import { ListBatimentController } from '../controller/listBatiment.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongooseConfigService } from "../config/MongooseConfigService";
 import { ConfigModule } from "@nestjs/config";
-import { BatimentService } from "../services/batiment.service";
+import { OrmListbatimentService } from "../services/orm.listbatiment.service";
 import { BatimentSchema } from "../entities/batiment.schema";
+import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.service";
 
 @Module({
   imports: [
@@ -19,6 +20,6 @@ import { BatimentSchema } from "../entities/batiment.schema";
     }),
   ],
   controllers: [ListBatimentController],
-  providers: [MongooseConfigService,BatimentService],
+  providers: [MongooseConfigService,OrmListbatimentService,CalculeMaxSurfaceEauService],
 })
 export class appModule {}
