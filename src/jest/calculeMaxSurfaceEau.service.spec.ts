@@ -1,7 +1,6 @@
 import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.service";
 import { Test, TestingModule } from "@nestjs/testing";
 
-
 describe('CalculeMaxSurfaceEauService', () => {
   let service;
 

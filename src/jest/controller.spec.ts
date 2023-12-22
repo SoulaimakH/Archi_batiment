@@ -6,7 +6,6 @@ import { hauteurListdto } from "../dto/hauteurtList.dto";
 import { HttpException } from "@nestjs/common";
 
 
-
 describe('ListBatimentController', () => {
   let controller
   let service

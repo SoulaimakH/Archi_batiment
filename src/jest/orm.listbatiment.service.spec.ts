@@ -5,7 +5,6 @@ import { hauteurListdto } from '../dto/hauteurtList.dto';
 import { OrmListbatimentService } from "../services/orm.listbatiment.service";
 import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.service";
 
-
 // Mocking the mongoose model
 const mockModel = {
   find: jest.fn(),
