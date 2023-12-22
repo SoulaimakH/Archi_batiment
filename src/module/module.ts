@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from "@nestjs/common";
 import { ListBatimentController } from '../controller/listBatiment.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongooseConfigService } from "../config/MongooseConfigService";
@@ -20,6 +20,6 @@ import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.se
     }),
   ],
   controllers: [ListBatimentController],
-  providers: [MongooseConfigService,OrmListbatimentService,CalculeMaxSurfaceEauService],
+  providers: [MongooseConfigService,OrmListbatimentService,CalculeMaxSurfaceEauService,Logger],
 })
 export class appModule {}

@@ -28,7 +28,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async getAllListBatiments(): Promise<listBatimentdto[]> {
     try {
-      return await this.batimentService.findAll();
+      const result= await this.batimentService.findAll();
+      this.logger.log('Successfully  retrieving ListBatiments.');
+      return result
     } catch (error) {
       this.logger.error(`Error while retrieving all ListBatiments: ${error.message}`);
       throw new Error('An error occurred while retrieving ListBatiments.');
@@ -54,7 +56,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async createListBatiments(@Body() listHeight:hauteurListdto): Promise<listBatimentdto> {
     try {
-      return await this.batimentService.create(listHeight);
+      const result= await this.batimentService.create(listHeight);
+      this.logger.log('Successfully creating ListBatiments.');
+      return result
     } catch (error) {
       this.logger.error(`Error while creating ListBatiment: ${error.message}`);
 
@@ -75,7 +79,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async getListBatiments(@Param('id') id: string,): Promise<listBatimentdto> {
     try {
-      return await this.batimentService.findById(id);
+      const result=await this.batimentService.findById(id);
+      this.logger.log('Successfully finding ListBatiment by ID.');
+      return result;
     } catch (error) {
       this.logger.error(`Error while retrieving ListBatiment by ID: ${error.message}`);
       if (error instanceof NotFoundException) {
@@ -93,7 +99,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async getListBatimentsByNum(@Param('num') num: number,): Promise<listBatimentdto> {
     try {
-      return await this.batimentService.findByNum(num);
+      const result= await this.batimentService.findByNum(num);
+      this.logger.log('Successfully finding ListBatiment by NUM.');
+      return result;
     } catch (error) {
       this.logger.error(`Error while retrieving ListBatiment by num: ${error.message}`);
       if (error instanceof NotFoundException) {
@@ -111,7 +119,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async deleteListBatiments(@Param('num') num: number){
     try {
-      await this.batimentService.delete(num);
+      const result= this.batimentService.delete(num);
+      this.logger.log('Successfully delete ListBatiment by NUM.');
+      return result;
     } catch (error) {
       this.logger.error(`Error while deleting ListBatiment by num: ${error.message}`);
       if (error instanceof NotFoundException) {
@@ -142,7 +152,9 @@ export class ListBatimentController {
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async updateListBatiments(@Param('num') num: number, @Body() newdto: hauteurListdto): Promise<listBatimentdto> {
     try {
-      return await this.batimentService.updateByNum(num, newdto);
+      const result= await this.batimentService.updateByNum(num, newdto);
+      this.logger.log('Successfully update ListBatiment.');
+      return result
     } catch (error) {
       this.logger.error(`Error while updating ListBatiment by num: ${error.message}`);
       if (error instanceof NotFoundException) {
