@@ -7,10 +7,18 @@ import { OrmListbatimentService } from "../services/orm.listbatiment.service";
 import { BatimentSchema } from "../entities/batiment.schema";
 import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.service";
 
+let envFilePath = '.env.dev';
+if(process.env.ENVIRONMENT ==='prod')
+  envFilePath='.env.prod';
+if(process.env.ENVIRONMENT ==='TEST')
+  envFilePath='.env.test';
+
+console.log(`BASTET Running in ${process.env.ENVIRONMENT}`);
+
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: envFilePath,
       isGlobal: true,
     }),
     MongooseModule.forFeature([{ name: 'listBatiment', schema: BatimentSchema }]),
