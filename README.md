@@ -235,6 +235,7 @@ Le conteneur expose le port `3001`.
 
 ##### Arrêter le conteneur `docker-compose down`
 
+![img_2.png](img_2.png)
 Accédez à l'application via http://localhost:3001.
 
 ## Stockage des Données
