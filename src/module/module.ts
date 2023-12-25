@@ -13,7 +13,7 @@ if(process.env.ENVIRONMENT ==='prod')
 if(process.env.ENVIRONMENT ==='TEST')
   envFilePath='.env.test';
 
-console.log(`BASTET Running in ${process.env.ENVIRONMENT}`);
+console.log(`Archi Tekt Running in ${process.env.ENVIRONMENT}`);
 
 @Module({
   imports: [

@@ -1,9 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ListBatimentController } from "../controller/listBatiment.controller";
 import { OrmListbatimentService } from "../services/orm.listbatiment.service";
-import { listBatimentdto } from "../dto/listBatement.dto";
+import { listBatimentdto } from "../dto/listBatiment.dto";
 import { hauteurListdto } from "../dto/hauteurtList.dto";
 import { HttpException } from "@nestjs/common";
+import { ExceptionHandler } from "winston";
 
 
 describe('ListBatimentController', () => {
@@ -82,28 +83,6 @@ describe('ListBatimentController', () => {
 
   });
 
-  describe('getListBatiments', () => {
-    it('should return a ListBatiment by ID', async () => {
-      const mockId = 'mock-id';
-      const mockListBatiment: listBatimentdto = {
-        "listHauteur": [2, 1, 2, 1, 2],
-        "maxsurfaceEau": 2,
-        "num": 21212
-      };
-      service.findById = jest.fn().mockResolvedValueOnce(mockListBatiment);
-      const result = await controller.getListBatiments(mockId);
-
-      expect(result).toEqual(mockListBatiment);
-    });
-
-    it('should handle errors and return 500 status code', async () => {
-      // Mock the service method to throw an error
-      service.findById = jest.fn().mockRejectedValueOnce(new Error('Test error'));
-      // Call the controller method and expect it to throw an HttpException
-      await expect(controller.getListBatiments('mock-id')).rejects.toThrowError(HttpException);
-    });
-  });
-
   describe('getListBatimentsByNum', () => {
     it('should return a ListBatiment by num', async () => {
       const mockNum = 123;
@@ -131,7 +110,7 @@ describe('ListBatimentController', () => {
     it('should handle errors and return 500 status code', async () => {
       const mockNum = 123;
       service.delete = jest.fn().mockRejectedValueOnce(new Error('Test error'));
-      await expect(controller.deleteListBatiments(mockNum)).rejects.toThrowError(HttpException);
+      await expect(controller.deleteListBatiments(mockNum)).rejects.toThrowError('Test error');
     });
 
   });

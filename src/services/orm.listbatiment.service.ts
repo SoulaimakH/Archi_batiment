@@ -4,7 +4,7 @@ import * as mongoose from "mongoose";
 import { listBatiment } from "../entities/batiment.schema";
 import { hauteurListdto } from "../dto/hauteurtList.dto";
 import { CalculeMaxSurfaceEauService } from "./calculeMaxSurfaceEau.service";
-import { listBatimentdto } from "../dto/listBatement.dto";
+import { listBatimentdto } from "../dto/listBatiment.dto";
 
 @Injectable()
 export class OrmListbatimentService {
@@ -103,7 +103,15 @@ export class OrmListbatimentService {
       return this.mapToDto(batimentlist);
     } catch (error) {
       // Gestion des erreurs avec un message log et une exception
-      this.handleServiceError('finding Listbatiment by num', error);
+      if (error instanceof NotFoundException) {
+        // Handle NotFoundException specifically
+        console.error('Batiment not found.', error.message);
+        throw error;
+      } else {
+        // Handle other errors with a generic message and throw a new InternalServerErrorException
+        this.handleServiceError('finding Listbatiment by num', error);
+      }
+
     }
   }
 
@@ -120,13 +128,25 @@ export class OrmListbatimentService {
           runValidators: true, // Exécuter les validateurs lors de la mise à jour
         }
       );
-
+      if(!updatedBatiment)throw new NotFoundException('Batiment not found.');
       // Mapper le résultat à un DTO
-      const batimentlist = updatedBatiment as listBatiment;
-      return this.mapToDto(batimentlist);
+        else{
+        const batimentlist = updatedBatiment as listBatiment;
+        return this.mapToDto(batimentlist);
+      }
+
     } catch (error) {
+
       // Gestion des erreurs avec un message log et une exception
-      this.handleServiceError('updating Listbatiment by num', error);
+      if (error instanceof NotFoundException) {
+        // Handle NotFoundException specifically
+        console.error('Batiment not found.', error.message);
+        throw error;
+      } else {
+        // Handle other errors with a generic message and throw a new InternalServerErrorException
+        this.handleServiceError('updating Listbatiment by num', error);
+      }
+
     }
   }
 

@@ -12,10 +12,11 @@ import {
 } from "@nestjs/common";
 import { OrmListbatimentService } from "../services/orm.listbatiment.service";
 import { hauteurListdto } from "../dto/hauteurtList.dto";
-import { ApiBody, ApiResponse } from "@nestjs/swagger";
-import { listBatimentdto } from "../dto/listBatement.dto";
+import { ApiBody, ApiOkResponse, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { listBatimentdto } from "../dto/listBatiment.dto";
+import { listBatimentypdatedto } from "../dto/listBatimentupdatedto";
 
-
+@ApiTags('ArchiTekt')
 @Controller('ArchiTekt')
 export class ListBatimentController {
   private readonly logger = new Logger(ListBatimentController.name);
@@ -24,7 +25,9 @@ export class ListBatimentController {
 
   @Get('allListBatiment')
   @ApiResponse({ status: 200, description: 'Successfully retrieved all ListBatiments',
-    type: listBatimentdto, isArray: true })
+    type: listBatimentdto, isArray: true }
+    )
+  @ApiOkResponse({type:listBatimentdto,isArray: true})
   @ApiResponse({ status: 500, description: 'Internal Server Error' })
   async getAllListBatiments(): Promise<listBatimentdto[]> {
     try {
@@ -72,26 +75,6 @@ export class ListBatimentController {
     }
   }
 
-  @Get('ListBatiment/:id')
-  @ApiResponse({ status: 200, description: 'Successfully retrieved ListBatiment by ID', type: listBatimentdto })
-  @ApiResponse({ status: 400, description: 'Bad request' })
-  @ApiResponse({ status: 404, description: 'ListBatiment not found' })
-  @ApiResponse({ status: 500, description: 'Internal Server Error' })
-  async getListBatiments(@Param('id') id: string,): Promise<listBatimentdto> {
-    try {
-      const result=await this.batimentService.findById(id);
-      this.logger.log('Successfully finding ListBatiment by ID.');
-      return result;
-    } catch (error) {
-      this.logger.error(`Error while retrieving ListBatiment by ID: ${error.message}`);
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException('ListBatiment not found.');
-      } else {
-        throw new InternalServerErrorException('An error occurred while retrieving ListBatiment by ID.');
-      }
-    }
-  }
-
   @Get('ListBatiment/Num/:num')
   @ApiResponse({ status: 200, description: 'Successfully retrieved ListBatiment by num', type: listBatimentdto })
   @ApiResponse({ status: 400, description: 'Bad request' })
@@ -103,11 +86,45 @@ export class ListBatimentController {
       this.logger.log('Successfully finding ListBatiment by NUM.');
       return result;
     } catch (error) {
+      console.log("con "+error)
       this.logger.error(`Error while retrieving ListBatiment by num: ${error.message}`);
       if (error instanceof NotFoundException) {
         throw new NotFoundException('ListBatiment not found.');
       } else {
         throw new InternalServerErrorException('An error occurred while retrieving ListBatiment by num.');
+      }
+    }
+  }
+
+  @Put('updateListBatiments/:num')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        buildingsHeightList: {
+          type: 'Array',
+          description: 'buildingsHeightList',
+          example: [1,0,3],
+          required: ['true']
+        },
+      }
+    }
+  })
+  @ApiResponse({ status: 200, description: 'ListBatiment updated successfully', type: listBatimentypdatedto })
+  @ApiResponse({ status: 400, description: 'Bad request' })
+  @ApiResponse({ status: 404, description: 'ListBatiment not found' })
+  @ApiResponse({ status: 500, description: 'Internal Server Error' })
+  async updateListBatiments(@Param('num') num: number, @Body() newdto: hauteurListdto): Promise<listBatimentdto> {
+    try {
+      const result= await this.batimentService.updateByNum(num, newdto);
+      this.logger.log('Successfully update ListBatiment.');
+      return result
+    } catch (error) {
+      this.logger.error(`Error while updating ListBatiment by num: ${error.message}`);
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException('ListBatiment not found.');
+      } else {
+        throw new InternalServerErrorException('An error occurred while updating ListBatiment by num.');
       }
     }
   }
@@ -132,37 +149,6 @@ export class ListBatimentController {
     }
   }
 
-  @Put('updateListBatiments/:num')
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        buildingsHeightList: {
-          type: 'Array',
-          description: 'buildingsHeightList',
-          example: [1,0,3],
-          required: ['true']
-        },
-      }
-    }
-  })
-  @ApiResponse({ status: 200, description: 'ListBatiment updated successfully', type: listBatimentdto })
-  @ApiResponse({ status: 400, description: 'Bad request' })
-  @ApiResponse({ status: 404, description: 'ListBatiment not found' })
-  @ApiResponse({ status: 500, description: 'Internal Server Error' })
-  async updateListBatiments(@Param('num') num: number, @Body() newdto: hauteurListdto): Promise<listBatimentdto> {
-    try {
-      const result= await this.batimentService.updateByNum(num, newdto);
-      this.logger.log('Successfully update ListBatiment.');
-      return result
-    } catch (error) {
-      this.logger.error(`Error while updating ListBatiment by num: ${error.message}`);
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException('ListBatiment not found.');
-      } else {
-        throw new InternalServerErrorException('An error occurred while updating ListBatiment by num.');
-      }
-    }
-  }
+
 
 }

@@ -15,7 +15,18 @@ const options = {
   }
 }
 
+// for development environment
 const devLogger = {
+  format: format.combine(
+    format.timestamp(),
+    format.errors({stack: true}),
+    customFormat
+  ),
+  transports: [new transports.Console(options.console)]
+}
+
+// for production environment
+const prodLogger = {
   format: format.combine(
     format.timestamp(),
     format.errors({stack: true}),
@@ -31,4 +42,6 @@ const devLogger = {
 }
 
 // export log instance based on the current environment
-export const instance = createLogger(devLogger)
+const instanceLogger = (process.env.ENVIRONMENT ==='prod') ? prodLogger : devLogger
+
+export const instance = createLogger(instanceLogger)
