@@ -3,19 +3,20 @@
 Ce projet NestJS implémente une API pour calculer le stockage maximum d'eau sur une liste de bâtiments. Il fournit à la fois une solution non optimale pour la compréhension et une solution optimisée pour une intégration directe dans un logiciel.
 
 ## Table des matières
-- [Aperçu du projet](#aperçu-du-projet)
-- [Mise en route](#mise-en-route)
+- [Archi TEKT Batiment API](#archi-tekt-batiment-api)
+  - [Aperçu du projet](#aperçu-du-projet)
+  - [Mise en route](#mise-en-route)
     - [Prérequis](#prérequis)
     - [Installation](#installation)
-- [Exécution des tests](#exécution-des-tests)
-- [Exécution de l'application](#Exécution-de-l'application)
-- [Utilisation de l'API](#utilisation-de-l'api)
-    - [Calcule du Stockage d'Eau](#Calcule-du-Stockage-d'Eau)
-- [Documentation](#documentation)
-- [Gestion des erreurs](#gestion-des-erreurs)
-- [Journaux](#journaux)
-- [Conteneurisation](#Containerisation)
-- [Stockage des données](#stockage-des-données)
+  - [Exécution des tests](#exécution-des-tests)
+  - [Exécution de l'application](#exécution-de-lapplication)
+  - [Utilisation de l'API](#utilisation-de-lapi)
+    - [Calcule du Stockage d'Eau](#calcule-du-stockage-deau)
+  - [Documentation](#documentation)
+  - [Gestion des erreurs](#gestion-des-erreurs)
+  - [Journaux](#journaux)
+  - [Conteneurisation](#conteneurisation)
+  - [Stockage des données](#stockage-des-données)
 
 
 ## Aperçu du projet
