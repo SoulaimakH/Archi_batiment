@@ -205,4 +205,5 @@ Vous pouvez utiliser Docker pour simplifier l'installation et la gestion de Mong
 `docker run -d -p 2717:27017 --name mon-mongodb mongo:latest`
 
 ### Environnement de Production (prod)
-En production, l'application se connecte à une base de données MongoDB hébergée dans le cloud. Aucune configuration supplémentaire n'est nécessaire, car l'application utilisera les informations d'identification appropriées pour accéder à la base de données distante.
+En production, l'application se connecte à une base de données MongoDB hébergée dans le cloud. 
+Aucune configuration supplémentaire n'est nécessaire.
