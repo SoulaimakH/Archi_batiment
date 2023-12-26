@@ -202,6 +202,7 @@ Accédez à l'application via http://localhost:3001.
 En développement, les données sont stockées localement sur une base MongoDB. 
 Assurez-vous d'avoir MongoDB installé localement avant de lancer l'application en mode développement.
 Vous pouvez utiliser Docker pour simplifier l'installation et la gestion de MongoDB en mode développement.
+`docker run -d -p 2717:27017 --name mon-mongodb mongo:latest`
 
 ### Environnement de Production (prod)
 En production, l'application se connecte à une base de données MongoDB hébergée dans le cloud. Aucune configuration supplémentaire n'est nécessaire, car l'application utilisera les informations d'identification appropriées pour accéder à la base de données distante.
