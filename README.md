@@ -164,7 +164,6 @@ Voici quelques scénarios de gestion d'erreur pris en charge :
 - **500 Internal Server Error** : Une erreur interne s'est produite du côté du serveur. Les logs de l'application enregistrent des informations détaillées sur ces erreurs.
 
 ## Journaux (Logs)
-Pour mettre en place une gestion de journaux robuste et suivre l'activité de l'application. 
 Les journaux sont essentiels pour le débogage, la surveillance et l'amélioration continue de notre application.
 
 ### Configuration de Winston
