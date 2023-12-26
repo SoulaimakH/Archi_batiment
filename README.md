@@ -210,4 +210,4 @@ En production, l'application se connecte à une base de données MongoDB héberg
 Aucune configuration supplémentaire n'est nécessaire.
 
 ## Documentation
-Pour des détails plus approfondis sur l'utilisation de l'API Archi TEKT Batiment, veuillez consulter la documentation complète : [API Archi TEKT](https://butter-utensil-887.notion.site/API-Archi-TEKT-B-timent-061e0eed51ae484388fc411917d19a93?pvs=4).
+Pour des détails plus approfondis sur l'utilisation de l'API Archi TEKT Batiment, veuillez consulter la documentation complète : [API Archi TEKT](https://butter-utensil-887.notion.site/API-Archi-TEKT-B-timent-061e0eed51ae484388fc411917d19a93).
