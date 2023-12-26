@@ -152,7 +152,8 @@ La fonction `calculeMaxSurfaceEau` utilise une approche itérative pour calculer
 Cette approche non optimale a une complexité temporelle plus élevée que l'approche optimisée utilisée dans calculeMaxSurfaceEau_Optimized, mais elle est plus compréhensible. Elle parcourt chaque position et effectue les calculs nécessaires pour déterminer la quantité d'eau stockée.
 
 ## Gestion des Erreurs
-L'API prend en charge la gestion appropriée des erreurs pour garantir une expérience utilisateur fiable. Les réponses d'erreur sont accompagnées de codes HTTP et de messages explicatifs pour aider les développeurs à comprendre et à résoudre les problèmes potentiels. Voici quelques scénarios de gestion d'erreur pris en charge :
+L'API prend en charge la gestion appropriée des erreurs pour garantir une expérience utilisateur fiable. Les réponses d'erreur sont accompagnées de codes HTTP et de messages explicatifs pour comprendre et résoudre les problèmes potentiels. 
+Voici quelques scénarios de gestion d'erreur pris en charge :
 
 ### Codes de Réponse HTTP
 
