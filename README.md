@@ -37,8 +37,8 @@ Ce projet NestJS vise à résoudre le problème du calcul du stockage maximal d'
 Clonez le dépôt et installez les dépendances :
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone https://github.com/SoulaimakH/Archi_batiment.git
+cd Archi_batiment
 npm install 
 ```
 
