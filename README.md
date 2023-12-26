@@ -125,7 +125,7 @@ DELETE /ArchiTekt/deleteListBatiment/456
 ```
 
 
-### Calcul du Stockage d'Eau
+### Calcule du Stockage d'Eau
 
 L'objectif est de déterminer la quantité maximale d'eau stockée en calculant la capacité de rétention d'eau pour chaque emplacement.
 
@@ -147,7 +147,7 @@ La fonction optimale `calculeMaxSurfaceEau_Optimized` utilise une approche à de
 
 
 #### Fonction non optimale
-La fonction `calculeMaxSurfaceEau` que vous avez fournie utilise une approche itérative pour calculer la surface d'eau stockée.
+La fonction `calculeMaxSurfaceEau` utilise une approche itérative pour calculer la surface d'eau stockée.
 
 Cette approche non optimale a une complexité temporelle plus élevée que l'approche optimisée utilisée dans calculeMaxSurfaceEau_Optimized, mais elle est plus compréhensible. Elle parcourt chaque position et effectue les calculs nécessaires pour déterminer la quantité d'eau stockée.
 
