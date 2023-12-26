@@ -173,10 +173,12 @@ Le fichier `winston.logger.ts` définit la configuration des journaux dans notre
 
 #### Environnement de Développement (dev)
 
-En environnement de développement, les journaux sont configurés pour s'afficher dans la console. Cela facilite le débogage et la surveillance en temps réel. Voici un extrait du code de configuration pour l'environnement de développement :
+En environnement de développement, les journaux sont configurés pour s'afficher dans la console. 
+Cela facilite le débogage et la surveillance en temps réel.
 
 #### Environnement de Production (prod)
-En environnement de production, les journaux sont enregistrés dans deux fichiers distincts : `error.log` pour les erreurs et `combine.log` pour les autres informations.
+En environnement de production, les journaux sont enregistrés dans deux fichiers distincts : `error.log` pour les erreurs et `combine.log` 
+pour les autres informations.
 
 ## Containerisation
 L'application est conteneurisée à l'aide de Docker
