@@ -70,7 +70,7 @@ describe('CalculeMaxSurfaceEauService', () => {
   });
 
 
-  // Additional complex tests
+  // complex tests
   it('should handle a complex scenario with alternating heights', () => {
     const result = service.calculeMaxSurfaceEau_Optimazed([2, 1, 2, 1, 2]);
     expect(result).toBe(2);

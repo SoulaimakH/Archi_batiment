@@ -54,7 +54,7 @@ describe('OrmListbatimentService', () => {
     expect(mockModel.create).toHaveBeenCalled();
   });
 
-  //sumple jest
+  //sumple tests
   it('should retrieve Listbatiment by num', async () => {
     const mockBatiment:listBatiment={
       num:123,

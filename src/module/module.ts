@@ -10,8 +10,6 @@ import { CalculeMaxSurfaceEauService } from "../services/calculeMaxSurfaceEau.se
 let envFilePath = '.env.dev';
 if(process.env.ENVIRONMENT ==='prod')
   envFilePath='.env.prod';
-if(process.env.ENVIRONMENT ==='TEST')
-  envFilePath='.env.test';
 
 console.log(`Archi Tekt Running in ${process.env.ENVIRONMENT}`);
 
