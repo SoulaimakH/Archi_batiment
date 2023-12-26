@@ -8,13 +8,13 @@ Ce projet NestJS implémente une API pour calculer le stockage maximum d'eau sur
     - [Prérequis](#prérequis)
     - [Installation](#installation)
 - [Exécution des tests](#exécution-des-tests)
-- [Exécution de l'application](#exécution-de-application)
-- [Utilisation de l'API](#utilisation-de-lapi)
-    - [Calcul du Stockage d'Eau](#calcul-du-stockage-deau)
+- [Exécution de l'application](#Exécution-de-l'application)
+- [Utilisation de l'API](#utilisation-de-l'api)
+    - [Calcule du Stockage d'Eau](#Calcule-du-Stockage-d'Eau)
 - [Documentation](#documentation)
 - [Gestion des erreurs](#gestion-des-erreurs)
 - [Journaux](#journaux)
-- [Conteneurisation](#conteneurisation)
+- [Conteneurisation](#Containerisation)
 - [Stockage des données](#stockage-des-données)
 
 
