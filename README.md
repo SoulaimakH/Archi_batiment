@@ -145,54 +145,9 @@ Le service `CalculeMaxSurfaceEauService` offre deux fonctions pour calculer la s
 
 La fonction optimale `calculeMaxSurfaceEau_Optimized` utilise une approche à deux pointeurs pour optimiser le calcul de la surface d'eau. Cette méthode est plus efficace en termes de complexité algorithmique.
 
-1-On initialise deux pointeurs, gauche au début de la liste et droite à la fin de la liste.
-
-2-On initialise deux variables, maxgauche et maxdroite, pour représenter les hauteurs maximales à gauche et à droite respectivement.
-
-3-On initialise une variable maxsurface pour stocker la quantité maximale d'eau stockée.
-
-4-On utilise une boucle while pour parcourir la liste jusqu'à ce que les pointeurs gauche et droite se croisent.
-
-5-À chaque itération, on compare les hauteurs maximales à gauche et à droite.
-
-6-On avance le pointeur du côté avec la hauteur maximale la plus petite.
-
-7-On met à jour la hauteur maximale du côté correspondant.
-
-8-On calcule et ajoute la surface d'eau stockée du côté choisi à la variable maxsurface.
-
-9-On répète ce processus jusqu'à ce que les pointeurs gauche et droite se croisent.
-
-10-On retourne la quantité maximale d'eau stockée (maxsurface).
-
-Cette approche optimisée réduit la complexité temporelle de l'algorithme, ce qui la rend plus efficace pour de grandes listes de hauteurs de bâtiments.
-
 
 #### Fonction non optimale
 La fonction `calculeMaxSurfaceEau` que vous avez fournie utilise une approche itérative pour calculer la surface d'eau stockée.
-Explication de l'approche :
-
-1-On initialise deux variables, maxsurface pour stocker la quantité maximale d'eau stockée, et ajoutPcd pour stocker la dernière quantité d'eau ajoutée.
-
-2-On utilise une boucle for pour parcourir la liste des hauteurs à partir de la deuxième position jusqu'à l'avant-dernière position.
-
-3-On initialise les variables droite et gauche avec la hauteur à la position i pour trouver la hauteur maximale à droite et à gauche.
-
-4-On vérifie si la hauteur actuelle est différente de celle précédente pour déterminer si on doit calculer la surface d'eau ajoutée.
-
-5-On utilise des boucles while pour trouver les hauteurs maximales à droite et à gauche.
-
-6-On calcule la surface d'eau ajoutée en prenant le minimum entre la hauteur maximale à droite et à gauche et en soustrayant la hauteur à la position i.
-
-7-On ajoute la surface d'eau ajoutée à la variable maxsurface.
-
-8-On met à jour la variable ajoutPcd avec la dernière quantité d'eau ajoutée.
-
-9-Si la hauteur actuelle est égale à la hauteur précédente, on ajoute la surface précédemment calculée à maxsurface.
-
-10-On répète ce processus pour toutes les positions.
-
-11-On retourne la quantité maximale d'eau stockée (maxsurface).
 
 Cette approche non optimale a une complexité temporelle plus élevée que l'approche optimisée utilisée dans calculeMaxSurfaceEau_Optimized, mais elle est plus compréhensible. Elle parcourt chaque position et effectue les calculs nécessaires pour déterminer la quantité d'eau stockée.
 
