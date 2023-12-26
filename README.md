@@ -12,11 +12,11 @@ Ce projet NestJS implémente une API pour calculer le stockage maximum d'eau sur
   - [Exécution de l'application](#exécution-de-lapplication)
   - [Utilisation de l'API](#utilisation-de-lapi)
     - [Calcule du Stockage d'Eau](#calcule-du-stockage-deau)
-  - [Documentation](#documentation)
   - [Gestion des erreurs](#gestion-des-erreurs)
   - [Journaux](#journaux)
   - [Conteneurisation](#conteneurisation)
   - [Stockage des données](#stockage-des-données)
+  - [Documentation](#documentation)
 
 
 ## Aperçu du projet
@@ -208,3 +208,6 @@ Vous pouvez utiliser Docker pour simplifier l'installation et la gestion de Mong
 ### Environnement de Production (prod)
 En production, l'application se connecte à une base de données MongoDB hébergée dans le cloud. 
 Aucune configuration supplémentaire n'est nécessaire.
+
+## Documentation
+Pour des détails plus approfondis sur l'utilisation de l'API Archi TEKT Batiment, veuillez consulter la documentation complète : [API Archi TEKT](https://butter-utensil-887.notion.site/API-Archi-TEKT-B-timent-061e0eed51ae484388fc411917d19a93?pvs=4).
